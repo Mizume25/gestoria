@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\indexController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 //use Laravel\Fortify\Features;
@@ -26,12 +27,8 @@ Route::"method" ('remot path',function (){
 })
 
 */
-Route::get('/', function () {
-    return Inertia::render('auth/login', [
-        'canResetPassword' => true, 
-        'canRegister' => true,      
-        'status' => session('status'),
-    ]);
-})->name('home'); // <--- ESTO ES LO QUE FALTA
+
+//Iniciar login normal
+Route::get('/', [indexController::class, 'index'])->name('home'); 
 
 require __DIR__.'/settings.php';

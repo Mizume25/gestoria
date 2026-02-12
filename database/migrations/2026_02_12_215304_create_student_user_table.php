@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('student_user', function (Blueprint $table) {
+            //Definimos claves
+            $table->unsignedBigInteger('id_student');
+            $table->unsignedBigInteger('id_user'); 
+            
+            //Claves primarias
+            $table->primary(['id_student', 'id_user']); 
+
+            //Definimos claves foraneas
+            $table->foreign('id_student')->references('id_student')->on('students')->onDelete('cascade');
+            $table->foreign('id_user')->references('id_user')->on('users')->onDelete('cascade');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('student_user');
+    }
+};
