@@ -5,8 +5,10 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Student;
 use App\Models\Subject;
-
+use Illuminate\Support\Facades\Hash;
 class ResultsSeeder extends Seeder
+
+
 {
     public function run(): void
     {
@@ -16,6 +18,22 @@ class ResultsSeeder extends Seeder
         $optativas = Subject::where('elective_subject', true)->get();
 
         $this->command->info('Datos obtenidos...');
+
+        
+        $this->command->info('Creando Todos los Usuarios');
+
+        //Recorremos cada studiante
+        foreach ($students as $student) {
+            $student->update([
+                'email' => $student->name .$student->id_student . '@lumina.cat',
+                'password' => Hash::make("{$student->id_student}-inslumina"),
+
+            ]);
+        }
+
+        // 2. Vinculamos en la tabla intermedia 'student_user'
+        // Opción A: Usando DB directo (si no tienes relación definida aún)
+       
         
         //Recorremos estudiantes
         foreach ($students as $student) {

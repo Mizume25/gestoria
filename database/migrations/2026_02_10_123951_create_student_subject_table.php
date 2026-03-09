@@ -17,6 +17,7 @@ return new class extends Migration
     $table->enum('trimester', ['1', '2', '3']);
 
     $table->primary(['id_student', 'id_subject']); // Corregido el nombre
+    $table->timestamps(); //crat_at update_at
 
     $table->foreign('id_student')->references('id_student')->on('students')->onDelete('cascade');
     $table->foreign('id_subject')->references('id_subject')->on('subjects')->onDelete('cascade');

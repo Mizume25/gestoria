@@ -17,7 +17,8 @@ public function up(): void
         $table->char('code_incidence', 20);
         $table->string('type_incidence', 100);
         $table->date('date_incidence')->nullable(); 
-        $table->text('details')->nullable();        
+        $table->text('details')->nullable();      
+        $table->timestamps(); //crat_at update_at  
 
         
         $table->foreign('id_student')

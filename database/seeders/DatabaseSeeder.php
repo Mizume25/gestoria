@@ -21,7 +21,6 @@ class DatabaseSeeder extends Seeder
             SubjectSeeders::class,  // Primero las asignaturas
             ResultsSeeder::class,   // Luego las notas (intermedia)
             IncidencesSeeder::class,  // Y al final las incidencias
-            UserSeeder::class   //creamos usuarios para cada studiante
             
         ]);
 

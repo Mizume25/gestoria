@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-
+use phpDocumentor\Reflection\Types\Nullable;
 
 class StudentFactory extends Factory
 {
@@ -24,9 +24,9 @@ class StudentFactory extends Factory
         'name' => $this->faker->firstName(),
         'last_name' => $this->faker->lastName(),
         'age' => $this->faker->numberBetween(18, 30),
-        // USAMOS las variables que calculamos arriba:
         'grade' => $grade, 
         'fecha_matricula' => $fechaMatricula->format('Y-m-d'),
+        
     ];
 }
 }

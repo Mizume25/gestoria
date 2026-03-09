@@ -8,7 +8,7 @@ class Student extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id_student'; 
-    public $timestamps = false;
+    
     
     //Modelo de Estudiante
     protected $fillable = [
@@ -16,7 +16,9 @@ class Student extends Model
         'last_name',
         'age',
         'grade',
-        'fecha_matricula'
+        'fecha_matricula',
+        'email',
+        'password'
     ];
 
     //Relaciona con tabla intermedia
