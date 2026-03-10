@@ -12,8 +12,12 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id('id_subject'); // Sin el "10" dentro
             $table->string('name_subject',100);
-            $table->boolean('elective_subject');
+            $table->boolean('elective_subject'); 
             $table->timestamps(); //crat_at update_at
+            $table->foreignId('id_teacher')
+            ->unique()
+          ->constrained('teachers', 'id_teacher')
+          ->onDelete('restrict'); 
         });
     }
 

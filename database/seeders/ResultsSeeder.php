@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Student;
+use App\Models\Teacher;
 use App\Models\Subject;
 use Illuminate\Support\Facades\Hash;
 class ResultsSeeder extends Seeder
@@ -32,9 +33,7 @@ class ResultsSeeder extends Seeder
         }
 
         // 2. Vinculamos en la tabla intermedia 'student_user'
-        // Opción A: Usando DB directo (si no tienes relación definida aún)
-       
-        
+        // Opción A: Usando DB directo (si no tienes relación definida aún) 
         //Recorremos estudiantes
         foreach ($students as $student) {
             //Recorremos materias
@@ -56,6 +55,8 @@ class ResultsSeeder extends Seeder
             }
            
         }
+
+      
 
         $this->command->info('Datos inyectados relacionados correctamente');
     }
